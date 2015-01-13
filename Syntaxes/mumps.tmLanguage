@@ -18,23 +18,29 @@
 		</dict>
 		<dict>
 			<key>comment</key>
-			<string>uses positive look behind (leading space) and positive look ahead (space, :, or $)</string>
+			<string>uses positive look behind (leading space or period) and positive look ahead (space, :, or $)</string>
 			<key>match</key>
-			<string>(?&lt;=\s)(?i:[BCDEFGHIJKLMNOQRSUVWX])(?=(:|\s|$))</string>
+			<string>(?&lt;=(\s|\.))(?i:[BCDEFGHIJKLMNOQRSUVWX])(?=(:|\s|$))</string>
 			<key>name</key>
 			<string>keyword.mumps.short</string>
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>(?&lt;=\s)(?i:BREAK|CLOSE|DO|ELSE|FOR|GOTO|HALT|HANG|IF|JOB|KILL|LOCK|MERGE|NEW|OPEN|QUIT|READ|SET|USE|VIEW|WRITE|XECUTE)(?=(:|\s|$))</string>
+			<string>(?&lt;=(\s|\.))(?i:BREAK|CLOSE|DO|ELSE|FOR|GOTO|HALT|HANG|IF|JOB|KILL|LOCK|MERGE|NEW|OPEN|QUIT|READ|SET|USE|VIEW|WRITE|XECUTE)(?=(:|\s|$))</string>
 			<key>name</key>
 			<string>keyword.mumps</string>
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>(?&lt;=\s)(?i:CATCH|CONTINUE|ELSEIF|TCOMMIT|THROW|TROLLBACK|TRY|TSTART|WHILE)(?=(:|\s|$))</string>
+			<string>(?&lt;=(\s|\.))(?i:CATCH|CONTINUE|ELSEIF|TCOMMIT|THROW|TROLLBACK|TRY|TSTART|WHILE)(?=(:|\s|$))</string>
 			<key>name</key>
 			<string>keyword.mumps.cache</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>(?&lt;=(\s|\.))(?i:ZA|ZD|ZALLOCATE|ZDEALLOCATE)(?=(:|\s|$))</string>
+			<key>name</key>
+			<string>keyword.mumps.msm</string>
 		</dict>
 		<dict>
 			<key>begin</key>
@@ -83,6 +89,12 @@
 			<string>support.function.cache</string>
 		</dict>
 		<dict>
+			<key>match</key>
+			<string>(?&lt;!\$)\$(?i:ZOS|ZA|ZD|ZDEALLOCATE|ZALLOCATE)(?=\()</string>
+			<key>name</key>
+			<string>support.function.msm</string>
+		</dict>
+		<dict>
 			<key>comment</key>
 			<string>uses negative look behind (don't match $$) and negative look ahead (don't match "(" )</string>
 			<key>match</key>
@@ -90,11 +102,18 @@
 			<key>name</key>
 			<string>variable.language.special</string>
 		</dict>
+
 		<dict>
 			<key>match</key>
 			<string>(?&lt;!\$)\$[Zz](?i:A|B|CHILD|C|EOF|ERROR|E|HOROLOG|H|IO|I|JOB|J|MODE|M|NAME|N|NSPACE|ORDER|O|PARENT|P|PI|POS|REFERENCE|R|STORAGE|S|TIMESTAMP|TS|TIMEZONE|TZ|TRAP|T|VERSION|V)\b</string>
 			<key>name</key>
 			<string>variable.language.special.z</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>(?&lt;!\$)\$(?i:ZB)\b</string>
+			<key>name</key>
+			<string>variable.language.special.z.msm</string>
 		</dict>
 		<dict>
 			<key>comment</key>
